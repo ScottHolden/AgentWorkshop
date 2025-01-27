@@ -1,0 +1,7 @@
+{
+    "AzureOpenAIEndpoint": "",
+    "AzureOpenAIDeployment": "",
+
+    "// Optional, AzureOpenAIKey only required when not using identity based authentication":"",
+    "AzureOpenAIKey": ""
+}
