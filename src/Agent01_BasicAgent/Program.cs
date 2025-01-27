@@ -1,4 +1,5 @@
-﻿using AgentWorkshop.Core;
+﻿using System.ClientModel;
+using AgentWorkshop.Core;
 using Azure.AI.OpenAI;
 using Azure.Identity;
 using OpenAI.Chat;
@@ -7,7 +8,7 @@ using OpenAI.Chat;
 var config = Config.LoadFrom("../../config.json");
 
 // Create a credential to use when talking to AOAI, can optionally swap this with: `new ApiKeyCredential(config.AzureOpenAIKey)`
-var credential = new DefaultAzureCredential();
+var credential = new ApiKeyCredential(config.AzureOpenAIKey!);
 
 // Create our AOAI client, this will give us access to inner clients
 var aoaiClient = new AzureOpenAIClient(config.AzureOpenAIEndpoint, credential);
