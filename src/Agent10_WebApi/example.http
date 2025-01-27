@@ -1,0 +1,8 @@
+POST http://localhost:5255/api/agent/invoke
+Content-Type: application/json
+
+{
+    "Count": 4,
+    "Distance": 10,
+    "Location": "Melbourne"
+}
