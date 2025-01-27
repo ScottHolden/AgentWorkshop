@@ -1,0 +1,9 @@
+@EmptyAgent_HostAddress = http://localhost:5226
+
+GET {{EmptyAgent_HostAddress}}/api/agent/invoke
+Accept: application/json
+
+{
+    
+}
+###
