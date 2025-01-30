@@ -1,0 +1,90 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Agent 1",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Agent01_BasicAgent/bin/Debug/net9.0/Agent01.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Agent01_BasicAgent",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Debug Agent 2",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Agent02_ChatAgent/bin/Debug/net9.0/Agent02.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Agent02_ChatAgent",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Debug Agent 3",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Agent03_StructuredOutput/bin/Debug/net9.0/Agent03.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Agent03_StructuredOutput",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Debug Agent 4",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Agent04_ToolCalling/bin/Debug/net9.0/Agent04.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Agent04_ToolCalling",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Debug Agent 5",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Agent05_HumanEscalation/bin/Debug/net9.0/Agent05.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Agent05_HumanEscalation",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Debug Agent 6",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Agent06_Evaluator/bin/Debug/net9.0/Agent06.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Agent06_Evaluator",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Debug Agent 10",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Agent10_WebApi/bin/Debug/net9.0/Agent10.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Agent10_WebApi",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}

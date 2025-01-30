@@ -1,4 +1,5 @@
 public record Config(
     Uri AzureOpenAIEndpoint,
-    string AzureOpenAIDeployment
+    string AzureOpenAIDeployment,
+    string? AzureOpenAIKey
 );
