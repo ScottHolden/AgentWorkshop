@@ -1,3 +1,4 @@
+using System.ClientModel;
 using Azure.AI.OpenAI;
 using Azure.Core;
 using Azure.Identity;
@@ -13,11 +14,12 @@ builder.Services.AddTransient(context
 );
 
 // Dependencies
-builder.Services.AddSingleton<TokenCredential>(services => new DefaultAzureCredential());
-builder.Services.AddSingleton<ChatClient>(services => {
+builder.Services.AddSingleton<ChatClient>(services =>
+{
     var config = services.GetRequiredService<Config>();
-    var cred = services.GetRequiredService<TokenCredential>();
-    var aoaiClient = new AzureOpenAIClient(config.AzureOpenAIEndpoint, cred);
+    var aoaiClient = string.IsNullOrEmpty(config.AzureOpenAIKey) ?
+        new AzureOpenAIClient(config.AzureOpenAIEndpoint, new DefaultAzureCredential()) :
+        new AzureOpenAIClient(config.AzureOpenAIEndpoint, new ApiKeyCredential(config.AzureOpenAIKey));
     return aoaiClient.GetChatClient(config.AzureOpenAIDeployment);
 });
 
@@ -41,7 +43,13 @@ _ = Task.Run(async ()
             ChatMessage.CreateUserMessage("Warmup")
         ], new ChatCompletionOptions{
             MaxOutputTokenCount = 10
-        }).ContinueWith(_ => app.Services.GetService<ILogger<Program>>()?.LogInformation("AOAI Warm"))
-    );
+        }).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+                app.Services.GetService<ILogger<Program>>()?.LogError($"AOAI Warm Failed: {task.Exception}");
+            else
+                app.Services.GetService<ILogger<Program>>()?.LogInformation("AOAI Warm Succeeded");
+        }
+    ));
 
 app.Run();
